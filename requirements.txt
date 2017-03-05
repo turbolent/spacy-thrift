@@ -1,4 +1,0 @@
-click==6.7
-thrift==0.10.0
-spacy==1.6.0
-coloredlogs==5.2
