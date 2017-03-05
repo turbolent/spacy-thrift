@@ -9,6 +9,10 @@ Download spaCy's parser model for English:
 
 - `python3 -m spacy.en.download parser`
 
+Run the service:
+
+- `python3 -m spacyThrift.service`
+
 
 ## Development
 
