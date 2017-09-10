@@ -7,7 +7,7 @@
 
 Download spaCy's parser model for English:
 
-- `python3 -m spacy.en.download parser`
+- `python3 -m spacy download en`
 
 Run the service:
 
