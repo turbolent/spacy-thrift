@@ -43,9 +43,11 @@ class Handler:
 def serve(port: int, language: str) -> None:
     coloredlogs.install(stream=sys.stderr, level=logging.INFO,
                         fmt='%(asctime)s %(name)s %(levelname)s %(message)s')
+
     logging.info("Loading ...")
-    nlp = spacy.load(language, parser=False, entity=False,
-                     create_pipeline=lambda nlp: [nlp.tagger])  # type: Language
+    nlp = spacy.load(language, parser=False, entity=False) # type: Language
+    nlp.pipeline = [nlp.tagger]
+
     handler = Handler(nlp)
     processor = SpacyThrift.Processor(handler)
     server_socket = TSocket.TServerSocket(port=port)
