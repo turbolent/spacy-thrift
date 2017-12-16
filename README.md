@@ -18,6 +18,6 @@ Run the service:
 
 - The Thrift code can be updated using:
 
-  `thrift -r --gen py --out . spacy.thrift`
+  `make generate`
   
 - If a new version of Thrift is used, also ensure the version is specified in `requirements.txt`
