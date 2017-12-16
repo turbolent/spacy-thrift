@@ -30,7 +30,7 @@ class Handler:
             return token.lower_
 
     def tag(self, sentence: str) -> List[Token]:
-        document = self.nlp(sentence, parse=False, entity=False)   # type: Doc
+        document = self.nlp(sentence)   # type: Doc
         return [
             Token(element.orth_, element.tag_, self._lemma(element))
             for element in document   # type: SpacyToken
@@ -45,8 +45,9 @@ def serve(port: int, language: str) -> None:
                         fmt='%(asctime)s %(name)s %(levelname)s %(message)s')
 
     logging.info("Loading ...")
-    nlp = spacy.load(language, parser=False, entity=False) # type: Language
-    nlp.pipeline = [nlp.tagger]
+    nlp = spacy.load(language, disable=['ner'])  # type: Language
+    nlp.remove_pipe('parser')
+    logging.info("Pipeline: %s", ', '.join(nlp.pipe_names))
 
     handler = Handler(nlp)
     processor = SpacyThrift.Processor(handler)
@@ -60,4 +61,3 @@ def serve(port: int, language: str) -> None:
 
 if __name__ == '__main__':
     serve()
-
