@@ -3,7 +3,7 @@
 from setuptools import setup
 
 setup(name='spacy-thrift',
-      version='0.4.0',
+      version='0.5.0',
       description='spaCy-as-a-service using Thrift',
       keywords=["natural language processing", "nlp"],
       url='https://github.com/turbolent/spacy-thrift',
@@ -16,7 +16,7 @@ setup(name='spacy-thrift',
       packages=['spacyThrift'],
       install_requires=[
           "click==6.7",
-          "thrift==0.10.0",
-          "spacy==2.0.5",
-          "coloredlogs==7.3.1"
+          "thrift==0.11.0",
+          "spacy==2.0.12",
+          "coloredlogs==10.0"
       ])

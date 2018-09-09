@@ -13,6 +13,8 @@ Run the service:
 
 - `python3 -m spacyThrift.service`
 
+Pass the `--ner` option to perform named-entity recognition.
+
 
 ## Development
 
